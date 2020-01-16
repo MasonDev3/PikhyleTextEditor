@@ -20,7 +20,7 @@
 /*** defines ***/
 
 #define PIKHYLE_VERSION "0.5.0"
-#define PIKHYLE_TAB_STOP 3
+#define PIKHYLE_TAB_STOP 4
 #define PIKHYLE_QUIT_TIMES 3
 
 #define CTRL_KEY(k) ((k)&0x1f)
@@ -102,6 +102,21 @@ char *C_HL_keywords[] = {
 	"int|", "long|", "double|", "float|", "char|", "unsigned|", "signed|",
 	"void|", NULL
 };
+char *CS_HL_extensions[] = { ".cs", NULL};
+char *CS_HL_keywords[] = {
+        "abstract", "as", "base", "break", "case", "catch", "checked",
+        "class", "const", "continue", "decimal", "default", "delegate",
+        "do", "else", "enum", "event", "explicit", "extern", "finally",
+        "fixed", "for", "foreach", "goto", "if", "implicit", "in", "interface",
+        "internal", "is", "lock", "namespace", "new", "null", "object",
+        "operator", "out", "override", "params", "private", "protected",
+        "public", "readonly", "ref", "return", "sealed", "sizeof", "stackalloc",
+        "static", "struct", "switch", "this", "throw", "try", "typeof",
+        "unchecked", "unsafe", "using", "using static", "virtual", "volatile",
+        "void", "while", "bool|", "byte|", "char|", "double|", "false|", "float|",
+        "int|", "long|", "sbyte|", "short|", "string|", "true|", "uint|", "ulong|",
+        "ushort|", NULL
+};
 char *Python_HL_extensions[] = { 
 	".py", ".py3", ".pyc", ".pyo", ".pyw", ".pyx", ".pyd", ".pxd", ".pyi",
   ".pyz", ".pywz", ".rpy", ".pyde", ".pyp", "pyt", ".xpy", ".ipynb", NULL
@@ -150,6 +165,13 @@ struct editorSyntax HLDB[] = {
 		"//", "/*", "*/",
 		HL_HIGHLIGHT_NUMBERS | HL_HIGHLIGHT_STRINGS
 	},
+    {
+	    "cs",
+	    CS_HL_extensions,
+	    CS_HL_keywords,
+	    "//", "/*", "*/",
+	    HL_HIGHLIGHT_NUMBERS | HL_HIGHLIGHT_STRINGS
+    },
 	{
 		"python",
 		Python_HL_extensions,
